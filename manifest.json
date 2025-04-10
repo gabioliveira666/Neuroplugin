@@ -1,0 +1,42 @@
+{
+  "manifest_version": 3,
+  "name": "Neuroplugin: plugin para neurodivergentes.",
+  "version": "1.0",
+  "description": "Extensão para melhorar a experiência de usuários neurodivergentes.",
+  
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon.png",
+    "128": "icons/icon.png"
+  },
+  
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": "icons/icon16.png"
+  },
+  
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting"
+  ],
+  
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  
+  "background": {
+    "service_worker": "background.js"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
+
+  
+
